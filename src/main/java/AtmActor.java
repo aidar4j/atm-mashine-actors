@@ -1,17 +1,33 @@
 import io.vlingo.xoom.actors.Actor;
-import message.EjectCardMessage;
+import io.vlingo.xoom.actors.testkit.TestUntil;
 
-public class AtmActor extends Actor implements Atm{
+public class AtmActor extends Actor implements Atm {
     private final Atm self;
-
+    private int count;
     private Long id;
     private Cash cash;
+    private CardReader cardReader;
+    private boolean cardReceived;
+    private final TestUntil until;
 
-    public AtmActor() {
-        self = selfAs(AtmActor.class);
+    public AtmActor(final TestUntil until) {
+        this.until = until;
+        this.cardReceived = false;
+        this.count = 0;
+        this.self = selfAs(Atm.class);
     }
 
-    public void ejectCard(EjectCardMessage ejectCardMessage) {
+    @Override
+    public void ejectCard(final CardReader cardReader) {
+        ++count;
+        logger().info("count " + count);
+        logger().info("Ejecting Card");
+        cardReader.ejectCard(self);
+    }
 
+    @Override
+    public void receiveCard() {
+        cardReceived = true;
+        logger().info("Card Received");
     }
 }

@@ -1,0 +1,22 @@
+‡XOOM: DynaCompiler ERROR: D:\Idea projects\atm-mashine-actors\target\generated-sources\Atm__Proxy.java:1: error: <identifier> expected
+
+package ;
+
+       ^
+XOOM: DynaCompiler ERROR: D:\Idea projects\atm-mashine-actors\target\generated-sources\Atm__Proxy.java:14: error: '.' expected
+import Atm;
+          ^
+XOOM: DynaCompiler ERROR: D:\Idea projects\atm-mashine-actors\target\generated-sources\Atm__Proxy.java:15: error: '.' expected
+import CardReader;
+                 ^
+ŒXOOM: DynaCompiler ERROR: D:\Idea projects\atm-mashine-actors\target\generated-test-sources\Atm__Proxy.java:1: error: <identifier> expected
+
+package ;
+
+       ^
+„XOOM: DynaCompiler ERROR: D:\Idea projects\atm-mashine-actors\target\generated-test-sources\Atm__Proxy.java:14: error: '.' expected
+import Atm;
+          ^
+„XOOM: DynaCompiler ERROR: D:\Idea projects\atm-mashine-actors\target\generated-test-sources\Atm__Proxy.java:15: error: '.' expected
+import CardReader;
+                 ^

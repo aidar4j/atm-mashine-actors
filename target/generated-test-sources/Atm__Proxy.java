@@ -16,8 +16,8 @@ import CardReader;
 
 public class Atm__Proxy extends ActorProxyBase<Atm> implements Atm, Proxy {
 
-  private static final String receiveCardRepresentation1 = "receiveCard()";
-  private static final String ejectCardRepresentation2 = "ejectCard(CardReader)";
+  private static final String ejectCardRepresentation1 = "ejectCard(CardReader)";
+  private static final String receiveCardRepresentation2 = "receiveCard()";
   private static final String stopRepresentation3 = "stop()";
   private static final String isStoppedRepresentation4 = "isStopped()";
   private static final String concludeRepresentation5 = "conclude()";
@@ -58,25 +58,25 @@ public class Atm__Proxy extends ActorProxyBase<Atm> implements Atm, Proxy {
   }
 
 
-  public void receiveCard() {
-    if (!actor.isStopped()) {
-      ActorProxyBase<Atm> self = this;
-      final SerializableConsumer<Atm> consumer = (actor) -> actor.receiveCard();
-      if (mailbox.isPreallocated()) { mailbox.send(actor, Atm.class, consumer, null, receiveCardRepresentation1); }
-      else { mailbox.send(new LocalMessage<Atm>(actor, Atm.class, consumer, receiveCardRepresentation1)); }
-    } else {
-      actor.deadLetters().failedDelivery(new DeadLetter(actor, receiveCardRepresentation1));
-    }
-  }
-
   public void ejectCard(CardReader arg0) {
     if (!actor.isStopped()) {
       ActorProxyBase<Atm> self = this;
       final SerializableConsumer<Atm> consumer = (actor) -> actor.ejectCard(ActorProxyBase.thunk(self, (Actor)actor, arg0));
-      if (mailbox.isPreallocated()) { mailbox.send(actor, Atm.class, consumer, null, ejectCardRepresentation2); }
-      else { mailbox.send(new LocalMessage<Atm>(actor, Atm.class, consumer, ejectCardRepresentation2)); }
+      if (mailbox.isPreallocated()) { mailbox.send(actor, Atm.class, consumer, null, ejectCardRepresentation1); }
+      else { mailbox.send(new LocalMessage<Atm>(actor, Atm.class, consumer, ejectCardRepresentation1)); }
     } else {
-      actor.deadLetters().failedDelivery(new DeadLetter(actor, ejectCardRepresentation2));
+      actor.deadLetters().failedDelivery(new DeadLetter(actor, ejectCardRepresentation1));
+    }
+  }
+
+  public void receiveCard() {
+    if (!actor.isStopped()) {
+      ActorProxyBase<Atm> self = this;
+      final SerializableConsumer<Atm> consumer = (actor) -> actor.receiveCard();
+      if (mailbox.isPreallocated()) { mailbox.send(actor, Atm.class, consumer, null, receiveCardRepresentation2); }
+      else { mailbox.send(new LocalMessage<Atm>(actor, Atm.class, consumer, receiveCardRepresentation2)); }
+    } else {
+      actor.deadLetters().failedDelivery(new DeadLetter(actor, receiveCardRepresentation2));
     }
   }
 

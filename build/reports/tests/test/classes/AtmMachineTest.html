@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.556s</div>
+<div class="counter">1.495s</div>
 <p>duration</p>
 </div>
 </td>
@@ -69,6 +69,9 @@
 <li>
 <a href="#tab2">Standard output</a>
 </li>
+<li>
+<a href="#tab3">Standard error</a>
+</li>
 </ul>
 <div id="tab0" class="tab">
 <h2>Failed tests</h2>
@@ -81,7 +84,7 @@
 	at io.vlingo.xoom.actors.Stage.actorFor(Stage.java:106)
 	at io.vlingo.xoom.actors.Stage.actorFor(Stage.java:95)
 	at io.vlingo.xoom.actors.World.actorFor(World.java:126)
-	at AtmMachineTest.testPlayPingPong(AtmMachineTest.java:11)
+	at AtmMachineTest.testPlayPingPong(AtmMachineTest.java:14)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -145,7 +148,7 @@
 </thead>
 <tr>
 <td class="failures">testPlayPingPong</td>
-<td class="failures">0.556s</td>
+<td class="failures">1.495s</td>
 <td class="failures">failed</td>
 </tr>
 </table>
@@ -153,24 +156,91 @@
 <div id="tab2" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>XOOM: DynaCompiler ERROR: D:\Idea projects\atm-mashine-actors\target\generated-sources\Atm__Proxy.java:1: error: &lt;identifier&gt; expected
-package ;
-       ^
-XOOM: DynaCompiler ERROR: D:\Idea projects\atm-mashine-actors\target\generated-sources\Atm__Proxy.java:14: error: '.' expected
-import Atm;
-          ^
-XOOM: DynaCompiler ERROR: D:\Idea projects\atm-mashine-actors\target\generated-sources\Atm__Proxy.java:15: error: '.' expected
-import CardReader;
+<pre>XOOM: DynaCompiler ERROR: D:\Idea projects\atm-mashine-actors\target\generated-sources\playground\BankActor__Proxy.java:26: error: interface expected here
+public class BankActor__Proxy extends ActorProxyBase&lt;playground.BankActor&gt; implements playground.BankActor, Proxy {
+                                                                                                ^
+XOOM: DynaCompiler ERROR: D:\Idea projects\atm-mashine-actors\target\generated-sources\playground\BankActor__Proxy.java:98: error: method equals(java.lang.Object) is already defined in class playground.BankActor__Proxy
+  public boolean equals(java.lang.Object arg0) {
                  ^
-XOOM: DynaCompiler ERROR: D:\Idea projects\atm-mashine-actors\target\generated-test-sources\Atm__Proxy.java:1: error: &lt;identifier&gt; expected
-package ;
-       ^
-XOOM: DynaCompiler ERROR: D:\Idea projects\atm-mashine-actors\target\generated-test-sources\Atm__Proxy.java:14: error: '.' expected
-import Atm;
-          ^
-XOOM: DynaCompiler ERROR: D:\Idea projects\atm-mashine-actors\target\generated-test-sources\Atm__Proxy.java:15: error: '.' expected
-import CardReader;
+XOOM: DynaCompiler ERROR: D:\Idea projects\atm-mashine-actors\target\generated-sources\playground\BankActor__Proxy.java:110: error: method toString() is already defined in class playground.BankActor__Proxy
+  public java.lang.String toString() {
+                          ^
+XOOM: DynaCompiler ERROR: D:\Idea projects\atm-mashine-actors\target\generated-sources\playground\BankActor__Proxy.java:122: error: method hashCode() is already defined in class playground.BankActor__Proxy
+  public int hashCode() {
+             ^
+XOOM: DynaCompiler ERROR: D:\Idea projects\atm-mashine-actors\target\generated-sources\playground\BankActor__Proxy.java:156: error: method address() is already defined in class playground.BankActor__Proxy
+  public io.vlingo.xoom.actors.Address address() {
+                                       ^
+XOOM: DynaCompiler ERROR: D:\Idea projects\atm-mashine-actors\target\generated-sources\playground\BankActor__Proxy.java:273: error: wait(long) in playground.BankActor__Proxy cannot override wait(long) in java.lang.Object
+  public void wait(long arg0) throws java.lang.InterruptedException {
+              ^
+  overridden method is final
+XOOM: DynaCompiler ERROR: D:\Idea projects\atm-mashine-actors\target\generated-sources\playground\BankActor__Proxy.java:284: error: wait(long,int) in playground.BankActor__Proxy cannot override wait(long,int) in java.lang.Object
+  public void wait(long arg0, int arg1) throws java.lang.InterruptedException {
+              ^
+  overridden method is final
+XOOM: DynaCompiler ERROR: D:\Idea projects\atm-mashine-actors\target\generated-sources\playground\BankActor__Proxy.java:295: error: wait() in playground.BankActor__Proxy cannot override wait() in java.lang.Object
+  public void wait() throws java.lang.InterruptedException {
+              ^
+  overridden method is final
+XOOM: DynaCompiler ERROR: D:\Idea projects\atm-mashine-actors\target\generated-sources\playground\BankActor__Proxy.java:306: error: getClass() in playground.BankActor__Proxy cannot override getClass() in java.lang.Object
+  public java.lang.Class&lt;?&gt; getClass() {
+                            ^
+  overridden method is final
+XOOM: DynaCompiler ERROR: D:\Idea projects\atm-mashine-actors\target\generated-sources\playground\BankActor__Proxy.java:318: error: notify() in playground.BankActor__Proxy cannot override notify() in java.lang.Object
+  public void notify() {
+              ^
+  overridden method is final
+XOOM: DynaCompiler ERROR: D:\Idea projects\atm-mashine-actors\target\generated-sources\playground\BankActor__Proxy.java:329: error: notifyAll() in playground.BankActor__Proxy cannot override notifyAll() in java.lang.Object
+  public void notifyAll() {
+              ^
+  overridden method is final
+XOOM: DynaCompiler ERROR: D:\Idea projects\atm-mashine-actors\target\generated-test-sources\playground\BankActor__Proxy.java:26: error: interface expected here
+public class BankActor__Proxy extends ActorProxyBase&lt;playground.BankActor&gt; implements playground.BankActor, Proxy {
+                                                                                                ^
+XOOM: DynaCompiler ERROR: D:\Idea projects\atm-mashine-actors\target\generated-test-sources\playground\BankActor__Proxy.java:98: error: method equals(java.lang.Object) is already defined in class playground.BankActor__Proxy
+  public boolean equals(java.lang.Object arg0) {
                  ^
+XOOM: DynaCompiler ERROR: D:\Idea projects\atm-mashine-actors\target\generated-test-sources\playground\BankActor__Proxy.java:110: error: method toString() is already defined in class playground.BankActor__Proxy
+  public java.lang.String toString() {
+                          ^
+XOOM: DynaCompiler ERROR: D:\Idea projects\atm-mashine-actors\target\generated-test-sources\playground\BankActor__Proxy.java:122: error: method hashCode() is already defined in class playground.BankActor__Proxy
+  public int hashCode() {
+             ^
+XOOM: DynaCompiler ERROR: D:\Idea projects\atm-mashine-actors\target\generated-test-sources\playground\BankActor__Proxy.java:156: error: method address() is already defined in class playground.BankActor__Proxy
+  public io.vlingo.xoom.actors.Address address() {
+                                       ^
+XOOM: DynaCompiler ERROR: D:\Idea projects\atm-mashine-actors\target\generated-test-sources\playground\BankActor__Proxy.java:273: error: wait(long) in playground.BankActor__Proxy cannot override wait(long) in java.lang.Object
+  public void wait(long arg0) throws java.lang.InterruptedException {
+              ^
+  overridden method is final
+XOOM: DynaCompiler ERROR: D:\Idea projects\atm-mashine-actors\target\generated-test-sources\playground\BankActor__Proxy.java:284: error: wait(long,int) in playground.BankActor__Proxy cannot override wait(long,int) in java.lang.Object
+  public void wait(long arg0, int arg1) throws java.lang.InterruptedException {
+              ^
+  overridden method is final
+XOOM: DynaCompiler ERROR: D:\Idea projects\atm-mashine-actors\target\generated-test-sources\playground\BankActor__Proxy.java:295: error: wait() in playground.BankActor__Proxy cannot override wait() in java.lang.Object
+  public void wait() throws java.lang.InterruptedException {
+              ^
+  overridden method is final
+XOOM: DynaCompiler ERROR: D:\Idea projects\atm-mashine-actors\target\generated-test-sources\playground\BankActor__Proxy.java:306: error: getClass() in playground.BankActor__Proxy cannot override getClass() in java.lang.Object
+  public java.lang.Class&lt;?&gt; getClass() {
+                            ^
+  overridden method is final
+XOOM: DynaCompiler ERROR: D:\Idea projects\atm-mashine-actors\target\generated-test-sources\playground\BankActor__Proxy.java:318: error: notify() in playground.BankActor__Proxy cannot override notify() in java.lang.Object
+  public void notify() {
+              ^
+  overridden method is final
+XOOM: DynaCompiler ERROR: D:\Idea projects\atm-mashine-actors\target\generated-test-sources\playground\BankActor__Proxy.java:329: error: notifyAll() in playground.BankActor__Proxy cannot override notifyAll() in java.lang.Object
+  public void notifyAll() {
+              ^
+  overridden method is final
+</pre>
+</span>
+</div>
+<div id="tab3" class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>[pool-2-thread-11] ERROR io.vlingo.xoom.actors.Logger - Actor instantiation failed because: Actor proxy playground.BankActor not created for main or test: Actor proxy playground.BankActor not created because: Dynamically generated class source did not compile: playground.BankActor__Proxy
 </pre>
 </span>
 </div>
@@ -182,7 +252,7 @@ import CardReader;
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 6.3</a> at 9 окт. 2021 г., 16:03:13</p>
+<a href="http://www.gradle.org">Gradle 6.3</a> at 16 окт. 2021 г., 15:09:49</p>
 </div>
 </div>
 </body>

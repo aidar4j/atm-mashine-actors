@@ -3,5 +3,5 @@ package playground;
 import io.vlingo.xoom.actors.Stoppable;
 
 public interface Bank extends Stoppable {
-    void checkPin(final Atm atm);
+    void sendMoney(final Atm atm, long money);
 }

@@ -1,4 +1,4 @@
-package playground;
+package actors;
 
 import io.vlingo.xoom.actors.Actor;
 import io.vlingo.xoom.actors.testkit.TestUntil;

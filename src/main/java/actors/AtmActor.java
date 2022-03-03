@@ -65,6 +65,7 @@ public class AtmActor extends Actor implements Atm {
     @Override
     public void declinePin(final CardReader cardReader, final Card card) {
         logger().info("Declining PIN");
+        isPinCorrect = false;
         logger().info("isPinCorrect is " + isPinCorrect);
         self.stop();
     }
@@ -93,5 +94,13 @@ public class AtmActor extends Actor implements Atm {
         logger().info("playground.AtmActor " + address() + " just stopped!");
         until.happened();
         super.afterStop();
+    }
+
+    @Override
+    protected void afterRestart(final Throwable reason) {
+        logger().info("playground.AtmActor " + address() + " just restarted!");
+        money = 0L;
+        until.happened();
+        super.afterRestart(reason);
     }
 }

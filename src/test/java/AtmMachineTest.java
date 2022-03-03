@@ -13,30 +13,47 @@ public class AtmMachineTest {
                     .define()
                     .with(CommonSupervisorsPlugin.CommonSupervisorsPluginConfiguration
                             .define()
-                            .supervisor("default", "defaultSupervisor", Atm.class, DefaultSupervisorActor.class)
-                            .supervisor("default", "defaultSupervisor", CardReader.class, DefaultSupervisorActor.class)
-                            .supervisor("default", "defaultSupervisor", Bank.class, DefaultSupervisorActor.class)
-                            .supervisor("default", "defaultSupervisor", Card.class, DefaultSupervisorActor.class)
+                            .supervisor("default", "mainSupervisor", Atm.class, MainSupervisorActor.class)
+                            .supervisor("default", "mainSupervisor", CardReader.class, MainSupervisorActor.class)
+                            .supervisor("default", "mainSupervisor", Bank.class, MainSupervisorActor.class)
+                            .supervisor("default", "mainSupervisor", Card.class, MainSupervisorActor.class)
                     );
 
     @Test
-    public void test() {
+    public void checkBankNameTest_withoutException() {
         final World world = World.start("actors", configuration);
         final TestUntil until = TestUntil.happenings(1);
         final Atm atm = world.actorFor(Atm.class, AtmActor.class, until);
-        final CardReader cardReader = world.actorFor(CardReader.class, CardReaderActor.class, "Deutsche Bank");
-        final Bank bank = world.actorFor(Bank.class, BankActor.class, 20000);
-        final Card card = world.actorFor(Card.class, CardActor.class, "1111", "Deutsche Bank");
-
-        atm.insertCardWithNullPointer(cardReader, card);
-        pauseThisThreadForSeconds(5);
+        final CardReader cardReader = world.actorFor(CardReader.class, CardReaderActor.class, "Money Bank");
+        final Card card = world.actorFor(Card.class, CardActor.class, "1111", "Money Bank");
 
         atm.insertCard(cardReader, card);
-        pauseThisThreadForSeconds(5);
+
+        until.completes();
+
+        world.terminate();
+    }
+
+    @Test
+    public void checkBankNameTest_withException() {
+        final World world = World.start("actors", configuration);
+        final TestUntil until = TestUntil.happenings(1);
+        final Atm atm = world.actorFor(Atm.class, AtmActor.class, until);
+        final CardReader cardReader = world.actorFor(CardReader.class, CardReaderActor.class, "Money Bank");
+        final Bank bank = world.actorFor(Bank.class, BankActor.class, 20000);
+        final Card card = world.actorFor(Card.class, CardActor.class, "1111", "Money Bank");
+
+        atm.insertCardWithNullPointer(cardReader, card);
         atm.affordMoney(bank, 500);
         pauseThisThreadForSeconds(5);
 
         atm.verifyPin("1111", card, cardReader);
+        pauseThisThreadForSeconds(5);
+
+        atm.affordMoney(bank, 213);
+        pauseThisThreadForSeconds(5);
+
+        atm.verifyPin("1121", card, cardReader);
         pauseThisThreadForSeconds(5);
 
         until.completes();
